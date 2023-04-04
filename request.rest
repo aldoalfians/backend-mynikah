@@ -1,0 +1,60 @@
+// Create User
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Mohandi Surip",
+    "email": "handim@gmail.com",
+    "nik": "0001928389123321",
+    "password": "123123123",
+    "confirmPassword": "123123123",
+    "role": "user"
+}
+
+###
+// Get All Users
+GET http://localhost:5000/users
+Content-Type: application/json
+
+###
+// Get user by id
+GET http://localhost:5000/users/fa22f8a3-f0f9-46a5-a58f-bbbb972b557b
+Content-Type: application/json
+
+###
+// Create User
+PATCH  http://localhost:5000/users/fa22f8a3-f0f9-46a5-a58f-bbbb972b557b
+Content-Type: application/json
+
+{
+    "name": "Mohandi Pranowo",
+    "email": "handim@gmail.com",
+    "nik": "0001928389123321",
+    "password": "",
+    "confirmPassword": "",
+    "role": "user"
+}
+
+###
+// DELETE USER
+DELETE   http://localhost:5000/users/fa22f8a3-f0f9-46a5-a58f-bbbb972b557b
+Content-Type: application/json
+
+
+###
+// LOGIN USER
+POST  http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "handim@gmail.com",
+    "password": "123123123"
+}
+
+###
+// GET USER
+GET  http://localhost:5000/me
+
+###
+// LOGOUT USER
+DELETE  http://localhost:5000/logout
