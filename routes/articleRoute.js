@@ -9,10 +9,12 @@ import {
 
 const router = express.Router();
 
-router.get("/article", getArticles);
-router.get("/article/:id", getArticleById);
-router.post("/article", createArticle);
-router.patch("/article/:id", updateArticle);
-router.delete("/article/:id", deleteArticle);
+import { verifyUser, adminOnly } from "../middleware/authUser.js";
+
+router.get("/article", verifyUser, getArticles);
+router.get("/article/:id", verifyUser, getArticleById);
+router.post("/article", adminOnly, verifyUser, createArticle);
+router.patch("/article/:id", adminOnly, verifyUser, updateArticle);
+router.delete("/article/:id", adminOnly, verifyUser, deleteArticle);
 
 export default router;
