@@ -1,14 +1,14 @@
-// Create User
+// Create User By Admin
 POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Mohandi Surip",
-    "email": "handim@gmail.com",
-    "nik": "0001928389123321",
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "nik": "0001928389123322",
     "password": "123123123",
     "confirmPassword": "123123123",
-    "role": "user"
+    "role": "admin"
 }
 
 ###
@@ -18,11 +18,11 @@ Content-Type: application/json
 
 ###
 // Get user by id
-GET http://localhost:5000/users/fa22f8a3-f0f9-46a5-a58f-bbbb972b557b
+GET http://localhost:5000/users/b80a4dd3-2361-46b8-92b2-3655152c04ea
 Content-Type: application/json
 
 ###
-// Create User
+// Update User
 PATCH  http://localhost:5000/users/fa22f8a3-f0f9-46a5-a58f-bbbb972b557b
 Content-Type: application/json
 
@@ -40,6 +40,19 @@ Content-Type: application/json
 DELETE   http://localhost:5000/users/fa22f8a3-f0f9-46a5-a58f-bbbb972b557b
 Content-Type: application/json
 
+###
+// Create User By Admin
+POST http://localhost:5000/regist
+Content-Type: application/json
+
+{
+    "name": "Sembodo Joko",
+    "email": "joko90@gmail.com",
+    "nik": "0001928389123323",
+    "password": "123123123",
+    "confirmPassword": "123123123",
+    "role": "user"
+}
 
 ###
 // LOGIN USER
@@ -47,9 +60,26 @@ POST  http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "handim@gmail.com",
+    "email": "est@gmail.com",
     "password": "123123123"
 }
+
+###
+// Get ME
+GET  http://localhost:5000/me
+Content-Type: application/json
+
+
+###
+// LOGIN ADMIN
+POST  http://192.168.1.9:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "123123123"
+}
+
 
 ###
 // GET USER
@@ -57,4 +87,83 @@ GET  http://localhost:5000/me
 
 ###
 // LOGOUT USER
-DELETE  http://localhost:5000/logout
+DELETE  http://192.168.1.9:5000/logout
+
+
+/// Article
+
+###
+// Get All Article
+GET http://localhost:5000/article
+Content-Type: application/json
+
+###
+// GET Article by id
+GET  http://localhost:5000/article/ee01ae0d-e728-4983-8dc8-5d5766a9b6ad
+Content-Type: application/json
+
+
+###
+// POST Data article
+POST  http://localhost:5000/article
+Content-Type: application/json
+
+{
+    "title": "Kemenag Targetkan Buku Nikah Beralih Digital di 2023",
+    "content": "<p>Kendari (Kemenag) --- Kasubdit Mutu, Sarana Prasarana, dan Sistem Informasi Kantor Urusan Agamam (KUA) Kementerian Agama (Kemenag), Jajang Ridwan menargetkan seluruh layanan KUA, termasuk buku nikah, akan beralih ke digital.<p>",
+    "imageUrl": "https://cdn.kemenag.go.id/storage/posts/16_9/big/1680435809.jpg"
+    
+}
+
+###
+// POST Data article
+POST  http://localhost:5000/article
+Content-Type: application/json
+
+{
+    "title": "Selama Ramadan, Kemenag Gelar Program Sapa KUA",
+    "content": "<p>Jakarta (Kemenag) --- Banyak program menarik yang digelar Ditjen Bimas Islam Kementerian Agama selama Ramadan, salah satunya Sapa KUA. Program yang digagas Direktorat Bina KUA dan Keluarga Sakinah ini merupakan forum koordinasi yang bertujuan untuk meningkatkan kualitas layanan KUA.<p>",
+    "imageUrl": "https://cdn.kemenag.go.id/storage/posts/16_9/big/1679981222.jpg"
+    
+}
+
+###
+// Edit Data article
+PATCH  http://localhost:5000/article/d99f6879-e35e-4078-abf7-84746cc1a861
+Content-Type: application/json
+
+{
+    "title": "Selama Ramadan, Kemenag Gelar Program",
+    "content": "<p>Jakarta (Kemenag) --- Banyak program menarik yang digelar Ditjen Bimas Islam Kementerian Agama selama Ramadan, salah satunya Sapa KUA. Program yang digagas Direktorat Bina KUA dan Keluarga Sakinah ini merupakan forum koordinasi yang bertujuan untuk meningkatkan kualitas layanan KUA.<p>",
+    "imageUrl": "https://cdn.kemenag.go.id/storage/posts/16_9/big/1679981222.jpg"
+    
+}
+###
+// DELETE USER
+DELETE   http://localhost:5000/article/d99f6879-e35e-4078-abf7-84746cc1a861
+Content-Type: application/json
+
+
+// Booking
+
+###
+// Get All booking
+GET http://localhost:5000/booking
+Content-Type: application/json
+
+
+###
+// Create booking
+POST http://localhost:5000/booking
+Content-Type: application/json
+
+{
+    "name": "Sembodo Joko",
+    "hours": "09:00-11:00",
+    "date": "2023-05-12",
+    "price": 0,
+    "role": "in"
+}
+
+
+
