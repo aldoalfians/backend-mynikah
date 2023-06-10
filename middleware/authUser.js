@@ -1,12 +1,16 @@
 import User from "../models/user.js";
+import jwt from "jsonwebtoken";
 
 export const verifyUser = async (req, res, next) => {
-  if (!req.session.userId) {
-    return res.status(401).json({ msg: "Mohon login ke akun Anda!" });
-  }
+  const token = req.header("x-auth-token");
+  if (!token) return res.json(false);
+
+  const verified = jwt.verify(token, "passwordKey");
+  if (!verified) return res.json(false);
+
   const user = await User.findOne({
     where: {
-      uuid: req.session.userId,
+      uuid: verified.id,
     },
   });
   if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });
@@ -16,9 +20,15 @@ export const verifyUser = async (req, res, next) => {
 };
 
 export const adminOnly = async (req, res, next) => {
+  const token = req.header("x-auth-token");
+  if (!token) return res.json(false);
+
+  const verified = jwt.verify(token, "passwordKey");
+  if (!verified) return res.json(false);
+  console.log(req);
   const user = await User.findOne({
     where: {
-      uuid: req.session.userId,
+      uuid: verified.id,
     },
   });
   if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });

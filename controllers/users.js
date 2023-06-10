@@ -47,7 +47,7 @@ export const createUser = async (req, res) => {
   if (password !== confirmPassword)
     return res
       .status(400)
-      .json({ msg: "Password dan confirm passowrd tidak sama" });
+      .json({ msg: "Password dan konfirmasi passowrd tidak sama" });
 
   const hashPassword = await argon2.hash(password);
   try {
@@ -72,17 +72,7 @@ export const updateUser = async (req, res) => {
   });
   if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });
 
-  const { name, email, nik, password, confirmPassword, role } = req.body;
-  let hashPassword;
-  if (password === "" || password === null) {
-    hashPassword = user.password;
-  } else {
-    hashPassword = await argon2.hash(password);
-  }
-  if (password !== confirmPassword)
-    return res
-      .status(400)
-      .json({ msg: "Password dan confirm password tidak sama" });
+  const { name, email, nik, role } = req.body;
 
   try {
     await User.update(
@@ -90,7 +80,6 @@ export const updateUser = async (req, res) => {
         name,
         email,
         nik,
-        password: hashPassword,
         role,
       },
       {

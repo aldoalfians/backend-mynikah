@@ -14,6 +14,7 @@ Content-Type: application/json
 ###
 // Get All Users
 GET http://localhost:5000/users
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZWVkNTFlLTAxZDgtNGZiZS04NDY0LWFhNzc4OTk2YTUwMCIsImlhdCI6MTY4NTg1NzEzNX0.VAqDebGkA8dcSBlw4vglkHZAuW1FYlqpX-RPVOk_3aU
 Content-Type: application/json
 
 ###
@@ -67,12 +68,13 @@ Content-Type: application/json
 ###
 // Get ME
 GET  http://localhost:5000/me
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZWVkNTFlLTAxZDgtNGZiZS04NDY0LWFhNzc4OTk2YTUwMCIsImlhdCI6MTY4NjAxOTA1MH0.HDDTdlmsvbgWIY7k8muEF3iPI5q078wbGvTPoj5VBD8
 Content-Type: application/json
 
 
 ###
 // LOGIN ADMIN
-POST  http://192.168.1.9:5000/login
+POST  http://localhost:5000/login
 Content-Type: application/json
 
 {
@@ -106,6 +108,7 @@ Content-Type: application/json
 ###
 // POST Data article
 POST  http://localhost:5000/article
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZWVkNTFlLTAxZDgtNGZiZS04NDY0LWFhNzc4OTk2YTUwMCIsImlhdCI6MTY4NTg1NzEzNX0.VAqDebGkA8dcSBlw4vglkHZAuW1FYlqpX-RPVOk_3aU
 Content-Type: application/json
 
 {
@@ -149,6 +152,7 @@ Content-Type: application/json
 ###
 // Get All booking
 GET http://localhost:5000/booking
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZWVkNTFlLTAxZDgtNGZiZS04NDY0LWFhNzc4OTk2YTUwMCIsImlhdCI6MTY4NjAxOTA1MH0.HDDTdlmsvbgWIY7k8muEF3iPI5q078wbGvTPoj5VBD8
 Content-Type: application/json
 
 
@@ -158,7 +162,6 @@ POST http://localhost:5000/booking
 Content-Type: application/json
 
 {
-    "name": "Sembodo Joko",
     "hours": "09:00-11:00",
     "date": "2023-05-12",
     "price": 0,
