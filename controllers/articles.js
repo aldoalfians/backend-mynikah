@@ -13,7 +13,7 @@ export const getArticles = async (req, res) => {
         "updatedAt",
       ],
     });
-    res.status(200).json(response);
+    res.status(200).json({ data: response });
   } catch (error) {
     res.status(500).json({ msg: error.message });
   }
